@@ -3,7 +3,7 @@
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
       background-color: #f9fafb;
       margin: 0;
       padding: 40px 20px;
@@ -145,18 +145,22 @@
       transform: translateY(-5px);
     }
 
-.swiper-slide::after {
-  content: "";
+.swiper-slide:hover .bg{
+visibility: visible !important;
+}
+
+
+.bg{
+  visibility: hidden;
   position: absolute;
   top: 0; left: 0;
+  z-index: 5;
   width: 100%; height: 100%;
   background-size: cover;
   background-position: center;
-  background-image: var(--bg-img);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 10;
 }
+
+
 
   /* Hover olduğunda arka plan görseli görünür olsun */
 .swiper-slide:hover::after {
@@ -172,7 +176,7 @@
 
 .card-hover-slide {
   position: relative;
-  height: 250px;
+  min-height: 250px;
   color: black;
   display: flex;
   align-items: center;
@@ -230,6 +234,7 @@
 .card-hover-slide:hover .card-content {
   opacity: 1;
   visibility: hidden;
+
 }
     .card-img {
       height: 200px;
@@ -274,12 +279,7 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
-    @media (max-width: 768px) {
-      .swiper-button-prev,
-      .swiper-button-next {
-        display: none;
-      }
-    }
+
     .swiper-slide {
   position: relative;
   overflow: hidden;
@@ -344,4 +344,81 @@
   opacity: 1;
   visibility: visible;
   transform: translateY(-4px);
+}
+
+/* Large desktops (above 1200px) */
+@media (min-width: 1200px) {
+  .swiper-slide {
+    transform: none;
+  }
+
+  .swiper-slide:hover {
+    transform: translateY(-8px) scale(1.07);
+  }
+}
+
+/* Tablets (768px - 1199px) */
+@media (max-width: 1199px) and (min-width: 768px) {
+  h2 {
+    font-size: 28px;
+  }
+
+  .slide-title {
+    font-size: 18px;
+  }
+
+  .slide-description {
+    font-size: 13px;
+  }
+
+  .read-more-link {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+}
+
+/* Mobile devices (below 768px) */
+@media (max-width: 767px) {
+  body {
+    padding: 20px 10px;
+  }
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .swiper {
+    padding-bottom: 40px;
+  }
+
+  .swiper-slide {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+  }
+
+  .slide-title {
+    font-size: 16px;
+  }
+
+  .slide-description {
+    font-size: 12px;
+  }
+
+  .read-more-link {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none;
+  }
 }
